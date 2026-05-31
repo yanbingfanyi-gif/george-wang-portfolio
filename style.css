@@ -1,3 +1,39 @@
+/* ── Photo Gallery ── */
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.gal-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.gal-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+  filter: saturate(0.88) brightness(0.95);
+}
+.gal-card:hover img { transform: scale(1.08); }
+.gal-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 500;
+  padding: 1.25rem .75rem .6rem;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.gal-card:hover .gal-caption { opacity: 1; }
+
+@media (max-width: 900px) { .portfolio-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .portfolio-gallery { grid-template-columns: repeat(2, 1fr); } }
+
 /* ── Scroll progress bar ── */
 #progress-bar {
   position: fixed;
